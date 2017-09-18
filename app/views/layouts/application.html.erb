@@ -9,10 +9,6 @@
   </head>
 
   <body>
-<<<<<<< HEAD
-    <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
-=======
   <%= render 'partial/header' %>
   <main class="container custom-container">
       <% flash.each do |message_type, message| %>
@@ -37,6 +33,5 @@
   </main>
   <%= render 'partial/footer' %>
   <%= debug(params) if Rails.env.development? %>
->>>>>>> af9ade7d76a55d9377b643c34a9f70480418c556
   </body>
 </html>
