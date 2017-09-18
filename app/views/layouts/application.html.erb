@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Compass</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,7 +9,34 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
+=======
+  <%= render 'partial/header' %>
+  <main class="container custom-container">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class:"alert alert-#{message_type}") %>
+      <% end %>
+    <div class="row">
+
+      <% if request.path === "/" %>
+
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+
+      <% else %>
+      <div class="col-md-12">
+          <%= yield %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </main>
+  <%= render 'partial/footer' %>
+  <%= debug(params) if Rails.env.development? %>
+>>>>>>> af9ade7d76a55d9377b643c34a9f70480418c556
   </body>
 </html>
