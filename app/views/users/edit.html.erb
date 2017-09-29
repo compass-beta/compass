@@ -12,7 +12,10 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.file_field :avatar %>
+      <%= f.label :avatar %>
+    　<%= image_tag @user.avatar.thumb.url if @user.avatar? %>
+    　<%= f.file_field :avatar %>
+    　<%= f.hidden_field :avatar_cache %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
