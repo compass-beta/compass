@@ -5,27 +5,19 @@
 $borderColor: #ccc;
 
 /* universal */
-
-*{
-	box-sizing:border-box;
-}
-
-ul{
-  padding: 0;
-}
-
-li{
-  list-style: none;
-}
-
-.clearfix:after {
-    content:"";
-    display:block;
-    clear:both;
+html {
+  height: 100%;
 }
 
 body {
   padding-top: 60px;
+  height: 100%;
+  font-family: Avenir , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+  font-weight: 500;
+}
+
+main{
+  height: 100%;
 }
 
 section {
@@ -54,7 +46,6 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
 }
 
 h2 {
@@ -70,34 +61,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
-/* header */
-
-header{
-  height: 60px;
-  border-bottom: 1px solid $borderColor;
-  background-color: #fff;
-}
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  transition: all .3s;
-  
-  &:hover{
-    opacity : .7;
-  }
-  
-  img{
-    width: 50%;
-  }
-}
-
 
 /* footer */
 
@@ -160,4 +123,63 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+// top
+#signup_main {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  color: $textColor_white;
+  background-color: #000;
+
+  .signup_backimg {
+    background-image: image-url("main.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+  }
+
+  a{
+    color: $textColor_white;
+  }
+
+  .signup_wrap{
+    width: 980px;
+    margin: 0 auto;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+
+  .signup_introduce {
+    width: 530px;
+    a {
+      text-decoration: #fff;
+    }
+    
+    .signup_subtitle {
+      font-size: 16px;
+    }
+
+    .signup_title {
+      font-size: 60px;
+      letter-spacing: 1px;
+    }
+
+    .signup_summary {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  .signup_form {
+    width: 340px;
+  }
 }

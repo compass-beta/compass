@@ -1,0 +1,24 @@
+header {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+  background-color: $themeColor_main;
+
+  #logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: #fff;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    transition: all .3s;
+    
+    &:hover {
+      opacity : .7;
+    }
+    
+    img {
+      width: 50%;
+    }
+  }
+}

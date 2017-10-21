@@ -1,28 +1,43 @@
 <% provide(:title, 'Sign up') %>
-<h1>新規登録</h1>
+<div id="signup_main">
+    <div class="signup_backimg"></div>
+	<div class="clearfix signup_wrap">
+		
+		<div class="signup_introduce">
+			<p class="signup_subtitle">
+				人生を変えるアプリ
+			</p>
+			<h1 class="signup_title">
+				COMPASS
+			</h1>
+			<p class="signup_summary">
+				旅行で人生を変える<br>
+				あなたの世界に新しい道筋を
+			</p>
+			<%= link_to "What's Compass?>", login_path %>
+		</div>
+		<div class="signup_form">
+			<%= form_for(@user, url: signup_path) do |f| %>
+			<%= render 'shared/error_messages' %>
+				<%= f.label :name %>
+				<%= f.text_field :name, class: 'form-control', placeholder: "ユーザー名" %>
 
-<div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<%= form_for(@user, url: signup_path) do |f| %>
-		<%= render 'shared/error_messages' %>
-		  <%= f.label :name %>
-		  <%= f.text_field :name, class: 'form-control' %>
+				<%= f.label :email %>
+				<%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス"  %>
 
-		  <%= f.label :email %>
-		  <%= f.email_field :email, class: 'form-control' %>
+				<%= f.label :password %>
+				<%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
 
-		  <%= f.label :password %>
-		  <%= f.password_field :password, class: 'form-control' %>
+				<%= f.label :password_confirmation, "Confirmation" %>
+				<%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード確認" %>
 
-		  <%= f.label :password_confirmation, "Confirmation" %>
-		  <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-		  <%= f.submit "登録する", class: "btn btn-primary" %>
-		<% end %>
+				<%= f.submit "Sign Up!", class: "btn btn-primary" %>
+			<% end %>
+			<ul>
+				<%# <li><a href="">Facebookで登録する</a></li>
+				<li><a href="">Twitterで登録する</a></li>
+				<li><a href="">Githubで登録する</a></li> %>
+		    </ul>
+		</div>
 	</div>
-	<ul>
-		<li><a href="">Facebookで登録する</a></li>
-		<li><a href="">Twitterで登録する</a></li>
-		<li><a href="">Githubで登録する</a></li>
-	</ul>
 </div>
