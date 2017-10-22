@@ -1,0 +1,2 @@
+class LoveLike < ApplicationRecord
+end
