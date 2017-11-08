@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/preference', to: 'preference#index'
+  post '/preference', to: 'preference#save_session'
+
   resources :users
 end

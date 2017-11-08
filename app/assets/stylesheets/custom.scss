@@ -16,7 +16,7 @@ body {
   font-weight: 500;
 }
 
-main{
+#main_page{
   height: 100%;
 }
 
@@ -190,4 +190,71 @@ input {
   width: 100%;
   margin: 0 auto;
   padding:0 30px;
+}
+
+
+
+// preference
+#preference {
+
+  width: 700px;
+  margin: 0 auto;
+  
+  .category_title {
+    font-size: 32px;
+    color: $themeColor_main;
+    margin-top: 80px;
+  }
+
+  .images_lines{
+    li {
+      position: relative;
+      float: left;
+      margin: 0 20px 20px 0;
+      background-color: #000;
+      z-index: 1;
+      &:hover {
+        cursor: pointer;
+      }
+      &:nth-child(3n + 3) {
+        margin-right: 0;
+      }
+
+      .panel_label {
+        margin: 0;
+      }
+
+      img {
+        width: 220px;
+        height: 220px;
+        opacity: .7;
+      }
+      
+      .label_text {
+        width: 94%;
+        height: 50px;
+        font-size: 26px;
+        line-height: 48px;
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-weight: bold;
+        z-index: 2;
+      }
+      .panel_form {
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        // opacity: 0;
+      }
+    }
+    
+  }
+  
 }

@@ -1,0 +1,2 @@
+class TagToCard < ApplicationRecord
+end

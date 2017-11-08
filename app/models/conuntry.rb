@@ -1,2 +1,0 @@
-class Conuntry < ApplicationRecord
-end
