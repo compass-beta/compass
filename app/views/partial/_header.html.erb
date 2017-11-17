@@ -1,24 +1,53 @@
-<header class="navbar-fixed-top">
-	  <div class="container">
-		  <%= link_to "Compass", root_path ,id: "logo" %>
-		  	<nav>
-		  	
-		  		<ul class="nav navbar-nav navbar-right">
-		  			<% if logged_in? %>
-			          
-			            <li><%= link_to "Profile", current_user %></li>
-			            <li><%= link_to "Settings", edit_user_path(current_user) %></li>  
-			            <li>
-			                <%= link_to "Log out", logout_path, method: :delete %>
-			            </li>
-			              
-			        <% else %>
-			        	<li><%= link_to "Log in", login_path %></li>
-			        <% end %>
-		  			
-		  		</ul>
-		  	
-		  	</nav>
-	  </div>
+<script>
+$(document).ready(function() {
+  $(".drawer").removeClass("drawer-open");
+  $(".drawer").addClass("drawer-close");
+  $(".drawer").drawer();
+});
+</script>
+<header role="banner">
+    <button type="button" class="drawer-toggle drawer-hamburger">
+      <span class="sr-only">toggle navigation</span>
+      <span class="drawer-hamburger-icon"></span>
+    </button>
+    <nav class="drawer-nav" role="navigation">
+      <ul class="drawer-menu">
+          <% if logged_in? %>
+            <li class="user_profile">
+             <div class="user_img">
+                <% if @user.avatar.url %>
+                  <%= image_tag @user.avatar.url if @user.avatar? %>
+                <% else %>
+                  <%= image_tag("default/user-img.png") %>
+                <% end %>
+             </div>
+             <div class="user_name"><%= @user.name %></div>
+            </li>
+            <li class="each-topics-title">FEED</li>
+            <li class="list-items"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i><%= link_to "基本情報", feed_base_path %></li>
+            <li class="list-items list-items-last"><i class="fa fa-rss fa-fw" aria-hidden="true"></i><%= link_to "All", feed_all_path %></li>  
+            <li class="each-topics-title">設定</li>
+            <li class="list-items"><i class="fa fa-user fa-fw" aria-hidden="true"></i><%= link_to "プリファレンス入力", preference_path %></li>        
+            <li class="list-items"><i class="fa fa-user fa-fw" aria-hidden="true"></i><%= link_to "Profile", current_user %></li>
+            <li class="list-items list-items-last"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
+            <li class="each-topics-title">COMPASSについて</li>
+            <li class="list-items">COMPASSとは</li>
+            <li class="list-items">よくあるご質問</li>
+            <li class="list-items list-items-last">バージョン情報</li>
+            <li class="each-topics-title">規約</li>
+            <li class="list-items">利用規約</li>
+            <li class="list-items">プライバシーポリシー</li>
+            <li class="list-items list-items-last"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+              
+          <% else %>
+            <li><%= link_to "Compass", root_path ,id: "logo", class: "drawer-brand" %></li>
+            <li><%= link_to "Log in", login_path, class: "drawer-menu-item" %></li>
+          <% end %>
+      </ul>
+    </nav>
 </header>
-
+<div class="header_support">
+  <div class="title">
+    COMPASS
+  </div>
+</div>

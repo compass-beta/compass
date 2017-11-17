@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    # idはURLから取ってきてる
     @user = User.find(params[:id])
   end
 

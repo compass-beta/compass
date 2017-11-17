@@ -1,25 +1,90 @@
 header {
-  // border-bottom: 1px solid #ccc;
-  background-color: $themeColor_main;
 
-  #logo {
-    float: left;
+  li {
+    border-bottom: 1px solid #ccc;
+    position: relative;
+  }
+
+  .user_profile {
+   display: flex;
+   align-items: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   height: auto;
+   padding-left: 10px;
+  }
+
+  .user_img{
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
-    font-size: 1.7em;
-    color: $textColor_white;
-    letter-spacing: -1px;
-    padding-top: 9px;
-    font-weight: bold;
-    transition: all .3s;
-    
-    &:hover {
-      opacity : .7;
-      text-decoration: none;
-    }
-    
     img {
-      width: 50%;
+      width: 100%;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  .user_name {
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .each-topics-title {
+    background-color: rgb(143, 143, 143);
+    font-weight: bold;
+    color: $textColor_white;
+    padding: 0 10px;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .list-items {
+    margin :0 10px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+
+    .fa {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-52%);
+
     }
 
+    a {
+      display: block;
+      color: $textColor_black;
+      padding-left: 24px;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .list-items-last {
+    border-bottom: none;
+  }
+
+  
+}
+
+.header_support {
+  background-color: $themeColor_main;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  border-bottom: 2px solid #009AB1;
+
+  .title {
+    font-size: 1.4em;
+    text-align: center;
+    line-height: 50px;
+    color: $textColor_white;
   }
 }

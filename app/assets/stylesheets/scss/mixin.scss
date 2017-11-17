@@ -3,3 +3,14 @@
   -moz-box-shadow: 6px 7px 20px -6px rgba(0,0,0,0.35);
   box-shadow: 6px 7px 20px -6px rgba(0,0,0,0.35);
 }
+
+@mixin genreBtn {
+  background-color: #FF8C82;
+  border-radius: 12px;
+}
+
+@mixin cardCommonWrap {
+  width: 100%;
+  padding: 0 15px;
+  margin: 20px 0;
+}

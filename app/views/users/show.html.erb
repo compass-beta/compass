@@ -1,7 +1,14 @@
-<%= @user.name %>,<%= @user.email %>
-<p>画像</p>
-<% if @user.avatar.url %>
-<%= image_tag @user.avatar.url if @user.avatar? %>
-<% else %>
-<%= image_tag("/user-default.jpg") %>
-<% end %>
+<div id="my_page">
+  <div class="user_info">
+    <div class="user_img">
+        <% if @user.avatar.url %>
+        <%= image_tag @user.avatar.url if @user.avatar? %>
+        <% else %>
+        <%= image_tag("default/user-img.png") %>
+        <% end %>
+    </div>
+    <p class="user_name">
+        <%= @user.name %>
+    </p>
+  </div>
+</div>

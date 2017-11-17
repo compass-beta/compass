@@ -38,6 +38,9 @@ gem 'carrierwave'
 gem 'mini_magick',   '4.7.0'
 gem 'fog', '1.40.0'
 
+# font-awesome
+gem "font-awesome-rails"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,21 +1,18 @@
 <% provide(:title, "Log in") %>
 <div id="login_main">
+    <div class="login_form">
+      <div class="title">Log in</div>
+        <%= form_for(:session, url: login_path) do |f| %>
 
-<h1>Log in</h1>
+          <%= f.label :email %>
+          <%= f.email_field :email, placeholder: "メールアドレス" %>
 
-  <div class="login_wrap">
-    <%= form_for(:session, url: login_path) do |f| %>
+          <%= f.label :password %>
+          <%= f.password_field :password, placeholder: "パスワード" %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
+          <%= f.submit "Log in", class: "btn" %>
+        <% end %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", root_path %></p>
-  </div>
-
+      <p>New user? <%= link_to "Sign up now!", root_path %></p>
+    </div>
 </div>

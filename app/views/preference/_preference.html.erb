@@ -1,0 +1,174 @@
+<%= form_for @jobAnswer, url: "/preference" do |f| %>
+
+  <div id="form_wrap_job" class="common_form_wrap">
+    <h2 class="category_title">
+    	興味ある職業を選んで下さい(1つ)
+    </h2>
+    <ul class="images_lines clearfix">
+      <% @jobs.each.with_index(1) do |job, index| %>
+      	<li>
+          <label class="panel_label">
+          	<%= image_tag("job/#{job.job_en}.jpg") %>
+        	  <p class="label_text">
+        	    <%= job.job %>
+        	  </p>
+            <input type="radio" value=<%= job.job %> name=<%= "answer[job]" %> class="panel_form">
+          </label>
+      	</li>
+      <% end %>
+    </ul>
+    <div class="next_btn">
+      次に進む
+    </div>
+  </div>
+
+  <div id="form_wrap_occupation" class="common_form_wrap">
+    <h2 class="category_title">
+    	興味ある分野を選んで下さい(複数)
+    </h2>
+    <ul class="images_lines clearfix">
+      <% @occupations.each.with_index(1) do |occupation, index| %>
+      	<li data-occupation=<%= index %>>
+        <label class="panel_label">
+        	<%= image_tag("occupation/#{occupation.occupation_en}.jpg") %>
+      	  <p class="label_text">
+      	    <%= occupation.occupation %>
+            <input type="checkbox" value=<%= occupation.occupation %> name=<%= "answer[occupation][]" %> class="panel_form">
+      	  </p>
+        </label>
+      	</li>
+      <% end %>
+    </ul>
+    <div class="next_btn">
+      次に進む
+    </div>
+  </div>
+
+  <div id="form_wrap_city" class="common_form_wrap">
+    <h2 class="category_title">
+      興味ある都市を選んで下さい(ひとつ)
+    </h2>
+    <ul class="images_lines clearfix">
+      <% @cities.each.with_index(1) do |city, index| %>
+        <li data-city=<%= index %>>
+        <label class="panel_label">
+          <%= image_tag("city/#{city.city_en}.jpg") %>
+          <p class="label_text">
+            <%= city.city %>
+            <input type="radio" value=<%= city.city %> name=<%= "answer[city]" %> class="panel_form">
+          </p>
+        </label>
+        </li>
+      <% end %>
+    </ul>
+    <div class="next_btn">
+      次に進む
+    </div>
+  </div>
+
+  <div id="form_wrap_interest" class="common_form_wrap">
+    <h2 class="category_title">
+      興味関心を選んで下さい(複数)
+    </h2>
+    <ul class="images_lines clearfix">
+      <% @interests.each.with_index(1) do |interest, index| %>
+        <li data-city=<%= index %>>
+        <label class="panel_label">
+          <%= image_tag("city/#{city.city_en}.jpg") %>
+          <p class="label_text">
+            <%= city.city %>
+            <input type="checkbox" value=<%= occupation.occupation %> name=<%= "answer[occupation][]" %> class="panel_form">
+          </p>
+        </label>
+        </li>
+      <% end %>
+    </ul>
+    
+      <%= f.submit %>
+    
+  </div>
+
+
+<% end %>
+
+<script>
+  $(function(){
+    $(window).on("load",function(){
+
+      var job_wrap        = $("#form_wrap_job");
+      var occupation_wrap = $("#form_wrap_occupation");
+      var city_wrap       = $("#form_wrap_city");
+      var interest_wrap   = $("#form_wrap_interest");
+
+
+      function on_panel_state(wrap_id, type, num) {
+
+        var wrap      = wrap_id;
+        var panel     = wrap.find($(".panel_label"));
+        var panel_img = panel.find("img");
+        var next_btn  = wrap.find(".next_btn");
+        var btn_flag  = false;
+
+        if(type === "radio") {
+
+          panel.on("click",function(){
+            var $this = $(this);
+            if($this.find("input").prop('checked')) {
+              panel.removeClass("active");
+              $this.addClass("active");
+              btn_flag = true;
+            }
+          });
+
+          panel_img.on("click",function(e){
+            e.stopPropagation();
+          });
+
+          next_btn.on("click",function(){
+            if(btn_flag) {
+              wrap.fadeOut(300, function() {
+                $('body, html').scrollTop(0);
+                $(".common_form_wrap").eq(num + 1).fadeIn(1000);
+              });
+              
+            }
+          });
+
+        }else if(type === "checkbox") {
+
+          panel.on("click",function(){
+            $this = $(this);
+            if($this.find("input").prop('checked')) {
+              $this.addClass("active");
+              btn_flag = true;
+            }else{
+              $this.removeClass("active");
+            }
+          });
+
+          panel_img.on("click",function(e){
+            e.stopPropagation();
+          });
+
+          next_btn.on("click",function(){
+            if(btn_flag) {
+              wrap.fadeOut(300, function() {
+                $('body, html').scrollTop(0);
+                $(".common_form_wrap").eq(num + 1).fadeIn(1000);
+              });
+              
+            }
+          });
+
+        }
+      }
+
+      on_panel_state(job_wrap, "radio", 0);
+      on_panel_state(occupation_wrap, "checkbox", 1);
+      on_panel_state(city_wrap, "radio", 2);
+      on_panel_state(interest_wrap, "checkbox", 3);
+
+    });
+
+  });
+</script>

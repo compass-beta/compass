@@ -16,22 +16,24 @@
 			</p>
 			<%= link_to "What's Compass?>", login_path %>
 		</div>
+
 		<div class="signup_form">
+		    <div class="title">Sign Up</div>
 			<%= form_for(@user, url: signup_path) do |f| %>
 			<%= render 'shared/error_messages' %>
 				<%= f.label :name %>
-				<%= f.text_field :name, class: 'form-control', placeholder: "ユーザー名" %>
+				<%= f.text_field :name, placeholder: "ユーザー名" %>
 
 				<%= f.label :email %>
-				<%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス"  %>
+				<%= f.email_field :email, placeholder: "メールアドレス"  %>
 
 				<%= f.label :password %>
-				<%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
+				<%= f.password_field :password, placeholder: "パスワード" %>
 
 				<%= f.label :password_confirmation, "Confirmation" %>
-				<%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード確認" %>
+				<%= f.password_field :password_confirmation, placeholder: "パスワード確認" %>
 
-				<%= f.submit "Sign Up!", class: "btn btn-primary" %>
+				<%= f.submit "Sign Up", class: "btn" %>
 			<% end %>
 			<ul>
 				<%# <li><a href="">Facebookで登録する</a></li>
@@ -39,5 +41,6 @@
 				<li><a href="">Githubで登録する</a></li> %>
 		    </ul>
 		</div>
+		
 	</div>
 </div>

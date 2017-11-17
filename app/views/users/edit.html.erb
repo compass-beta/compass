@@ -17,12 +17,6 @@
     　<%= f.file_field :avatar %>
     　<%= f.hidden_field :avatar_cache %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 

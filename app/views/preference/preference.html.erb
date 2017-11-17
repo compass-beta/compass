@@ -1,79 +1,22 @@
-<%= form_for @jobAnswer, url: '/' do |f| %>
-  <div id="form_wrap_job">
-    <h2 class="category_title">
-    	気になる職業を選んで下さい(1つ)
-    </h2>
-    <ul class="images_lines clearfix">
-      <% @jobs.each.with_index(1) do |job, index| %>
-      	<li>
-          <label class="panel_label">
-          	<%= image_tag("job/#{job.job_en}.jpg") %>
-        	  <p class="label_text">
-        	    <%= job.job %>
-        	  </p>
-            <input type="radio" value=<%= job.job %> name=<%= "answer[job]" %> class="panel_form">
-          </label>
-      	</li>
-      <% end %>
-    </ul>
-  </div>
+<div id="form_wrap_interest">
+  <p class="category_title">
+    興味のあるタグをえらんで<br>
+    あなただけのガイドをつくりましょう
+  </p>
 
-  <div id="form_wrap_occupation">
-    <h2 class="category_title">
-    	気になる分野を選んで下さい(複数)
-    </h2>
-    <ul class="images_lines clearfix">
-      <% @occupations.each.with_index(1) do |occupation, index| %>
-      	<li data-occupation=<%= index %>>
-        <label class="panel_label">
-        	<%= image_tag("occupation/#{occupation.occupation_en}.jpg") %>
-      	  <p class="label_text">
-      	    <%= occupation.occupation %>
-            <input type="checkbox" value=<%= occupation.occupation %> name=<%= "answer[occupation][]" %> class="panel_form">
-      	  </p>
-        </label>
-      	</li>
-      <% end %>
-    </ul>
-  </div>
-
-<%= f.submit %>
-<% end %>
-
-<script>
-  $(function(){
-    $(window).on("load",function(){
-
-      var job_wrap = $("#form_wrap_job");
-      var occupation_wrap = $("#form_wrap_occupation");
-
-      function on_panel_state(wrap_id, type) {
-        
-        var wrap = wrap_id;
-        var panel = wrap.find($(".panel_label"));
-        var panel_img = panel.find("img");
-
-        if(type === "radio") {
-          panel.on("click",function(){
-            $this = $(this);
-            if($this.find("input").prop('checked')) {
-              panel.removeClass("active");
-              $this.addClass("active");
-            }
-          });
-
-          panel_img.on("click",function(e){
-            e.stopPropagation();
-          });
-        }else if(type === "checkbox") {
-
-        }
-
-
-
-      }
-
-    });
-
-  });
-</script>
+  <input type="search" id="form_search" placeholder="&#xf002; タグを検索" />
+  <ul id="images_line" class="images_lines clearfix">
+    <% @cities.each.with_index(1) do |city, index| %>
+      <li>
+      <label class="panel_label">
+        <%= image_tag("city/#{city.city_en}.jpg") %>
+        <p class="label_text">
+          <%= city.city %>
+          <input type="checkbox" value=<%= city.city %> name=<%= "answer[city][]" %> class="panel_form">
+        </p>
+      </label>
+      </li>
+    <% end %>
+    
+  </ul>
+</div>

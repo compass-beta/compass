@@ -1,2 +1,22 @@
-<h1>Feeds#top</h1>
-<p>Find me in app/views/feeds/top.html.erb</p>
+<%= render 'partial/feed/select_menu' %>
+
+<div class="card_wrap clearfix">
+  <a class="card_block clearfix">
+    <div class="card_img">
+	  <%= image_tag("feed/sample.jpg") %>
+	</div>
+	<div class="card_info">
+	  <p class="title">
+	    パイクプレイスマーケット
+	  </p>
+	  <div class="genre clearfix">
+		<ul class="clearfix">
+			<li>観光地</li>
+			<li>食</li>
+			<li>旅行</li>
+			<li>歴史</li>
+		</ul>
+	  </div>
+	</div>
+  </a> 
+</div>

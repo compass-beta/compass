@@ -1,0 +1,47 @@
+.select_menu {
+    background-color: $themeColor_main;
+    position: relative;
+    
+    ul {
+            width: 100%;
+            margin: 0;
+            height: 40px;
+            line-height: 40px;
+            li {
+                float: left;
+                width: 25%;
+                text-align: center;
+            a{
+                color: $textColor_white;
+                display: block;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .active_bar {
+        width: 25%;
+        height: 2px;
+        background-color: #DFF289;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0%;
+    }
+    
+
+    @media (min-width: 1025px) {
+        ul {
+            width: 800px;
+            margin: 0 auto;
+            li {
+            float: left;
+            width: 25%;
+            }
+        }
+    }
+    
+}
